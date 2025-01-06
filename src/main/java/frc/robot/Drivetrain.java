@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import frc.robot.Constants.DriveConstants;
+
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
@@ -11,14 +13,9 @@ import edu.wpi.first.math.kinematics.SwerveDriveOdometry;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.wpilibj.AnalogGyro;
 
-import com.revrobotics.CANSparkBase.IdleMode;
-import edu.wpi.first.wpilibj.motorcontrol.MotorController;
-import frc.robot.Constants.ModuleConstants;
-import frc.robot.Constants.DriveConstants;
-
 /** Represents a swerve drive style drivetrain. */
 public class Drivetrain {
-  public static final double kMaxSpeed = 3.0; // 3 meters per second
+  public static final double kMaxSpeed = DriveConstants.kMaxSpeedMetersPerSecond; // As defined in Constants file
   public static final double kMaxAngularSpeed = Math.PI; // 1/2 rotation per second
 
   private final Translation2d m_frontLeftLocation = new Translation2d(0.381, 0.381);
@@ -45,12 +42,6 @@ public class Drivetrain {
         DriveConstants.kRearRightDrivingCanId,
         DriveConstants.kRearRightTurningCanId,
         DriveConstants.kBackRightChassisAngularOffset);
-  /*
-  private final SwerveModule m_frontLeft = new SwerveModule(1, 2, 0, 1, 2, 3);
-  private final SwerveModule m_frontRight = new SwerveModule(3, 4, 4, 5, 6, 7);
-  private final SwerveModule m_backLeft = new SwerveModule(5, 6, 8, 9, 10, 11);
-  private final SwerveModule m_backRight = new SwerveModule(7, 8, 12, 13, 14, 15);
-  */
 
   private final AnalogGyro m_gyro = new AnalogGyro(0);
 
